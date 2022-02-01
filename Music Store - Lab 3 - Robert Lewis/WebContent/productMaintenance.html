@@ -1,0 +1,41 @@
+<head>
+<meta charset="ISO-8859-1">
+<title>Product Maintenance</title>
+<link rel="stylesheet" href="styles/main.css">
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+
+<h1>Products</h1>
+
+<table>
+<tr>
+	<th style="width:75px">Code</th>
+	<th style="width:500px">Description</th>
+	<th style="width:75px;text-align:right">Price</th>
+	<th></th>
+	<th></th>
+</tr>
+<tr :itemCode="item.code" v-for="item in items">
+	<td>{{item.code}}</td>
+	<td>{{item.description}}</td>
+	<td style="text-align:right">{{"$" + item.price}}</td>
+	<td>
+		<a :href="item.editProduct">Edit</a>
+	</td>
+	<td>
+		<a href="#" class="deleteProduct" value={{item.code}}>Delete</a>
+	</td>
+</tr>
+</table>
+
+<form action="editProduct" method="get">
+	<input type="submit" value="Add Product" />
+</form>
+
+</div>
+<script src="productMaintenanceVue.js"></script> 
+</body>
+</html>
